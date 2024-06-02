@@ -1,15 +1,20 @@
 // app/providers.tsx
 "use client";
-
+import { ReactNode } from 'react';
 import { NextUIProvider } from "@nextui-org/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
+import { type ThemeProviderProps } from "next-themes/dist/types"
 
-export function Providers({ children }: { children: React.ReactNode }) {
+interface Props extends ThemeProviderProps {
+  children: ReactNode;
+}
+
+export function ThemeProvider({ children, ...props }: Props) {
   return (
-    <NextUIProvider>
-      <NextThemesProvider attribute="class" defaultTheme="dark">
-        {children}
-      </NextThemesProvider>
-    </NextUIProvider>
+      <NextUIProvider>
+        <NextThemesProvider {...props} attribute="class" defaultTheme="light">
+            {children}
+          </NextThemesProvider>
+      </NextUIProvider>
   );
 }

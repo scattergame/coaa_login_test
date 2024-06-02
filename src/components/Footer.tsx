@@ -1,7 +1,12 @@
+'use client'
 import React from 'react'
+import { ThemeSwitcher } from './ThemeSwitcher'
 
 export default function Footer() {
   return (
-    <div>Footer</div>
+    <div className='flex items-center justify-end px-10'>
+      <ThemeSwitcher />
+      <p>Footer</p>
+    </div>
   )
 }

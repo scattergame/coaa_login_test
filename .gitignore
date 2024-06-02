@@ -31,6 +31,8 @@ yarn-error.log*
 # vercel
 .vercel
 
+coaa-web-firebaseKey.json
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
