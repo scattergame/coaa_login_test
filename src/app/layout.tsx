@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import {
-  ClerkProvider,
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton
+  ClerkProvider
 } from '@clerk/nextjs'
 import "./globals.css";
-import { ThemeSwitcher } from "@/components/ThemeSwitcher";
-import { Providers } from "@/app/providers";
+
+import { ThemeProvider } from "@/app/providers";
 import Appbar from "@/components/Appbar";
+import Footer from "@/components/Footer";
+//const NoSSR_APPBar = dynamic(() => import("@/components/Appbar"), { ssr: true })
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,17 +23,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
-        <html lang="en">
+      <ClerkProvider>
+        <>
+        <html lang="en" suppressHydrationWarning>
         <body className={inter.className}>
-          <Providers>
+          <ThemeProvider>
             <Appbar />
-              <div>
-              {children}
-              </div>
-            </Providers>
+            
+            {children}
+            <Footer />
+            </ThemeProvider>
           </body>
         </html>
-    </ClerkProvider>
+        </>
+      </ClerkProvider>
   );
 }

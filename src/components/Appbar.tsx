@@ -1,31 +1,47 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useClerk, useUser, UserButton } from '@clerk/nextjs';
-import {
-    Navbar, NavbarBrand, NavbarContent, NavbarItem,
-    Link, DropdownItem, DropdownTrigger, Dropdown,
-    DropdownMenu, Avatar
-} from "@nextui-org/react";
-import { ThemeSwitcher } from '@/components/ThemeSwitcher';
-import { dark, shadesOfPurple } from '@clerk/themes';
+import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, Link, NavbarMenu, NavbarMenuItem } from "@nextui-org/react";
+import { dark } from '@clerk/themes';
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
-
+import { Avatar } from '@nextui-org/react';
 
 export default function Appbar() {
     const { signOut } = useClerk();
-    const { isLoaded, isSignedIn, user } = useUser();
-    const [mounted, setMounted] = useState(false)
-    const { systemTheme, theme, setTheme } = useTheme()
+    const { isLoaded, isSignedIn } = useUser();
+    const [mounted, setMounted] = useState(false);
+    const { systemTheme, theme } = useTheme();
     const currentTheme = theme === "system" ? systemTheme : theme;
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    const menuItems = isSignedIn ? [
+        "My COAA",
+        "Service",
+        "Activity",
+        "Research",
+        "Opportunity",
+        "Sign Out"
+    ] : [
+        "Sign In",
+        "Service",
+        "Activity",
+        "Research",
+        "Opportunity"
+    ];
+
+    const handleSignOut = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+        event.preventDefault();
+        signOut();
+    };
 
     return (
-        <Navbar className='bg-gray-100 shadow-sm dark:bg-gray-900'>
+        <Navbar className='bg-gray-100 shadow-sm dark:bg-gray-900' onMenuOpenChange={setIsMenuOpen} isMenuOpen={isMenuOpen}>
             <NavbarContent className="sm:flex" justify="start">
+                <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
                 <NavbarBrand>
                     <p className="text-xl font-serif font-bold text-inherit">COAA</p>
                 </NavbarBrand>
@@ -33,41 +49,50 @@ export default function Appbar() {
 
             <NavbarContent className="sm:flex gap-4" justify="end">
                 <NavbarItem className='hidden sm:block text-inherit font-serif'>
-                    <Link color="foreground" href="#" aria-current="page">
+                    <Link color="foreground" href="/coaa_service" aria-current="page">
                         Service
                     </Link>
                 </NavbarItem>
                 <NavbarItem className='hidden sm:block text-inherit font-serif'>
-                    <Link color="foreground" href="#" aria-current="page">
+                    <Link color="foreground" href="/coaa_activity" aria-current="page">
                         Activity
                     </Link>
                 </NavbarItem>
                 <NavbarItem className='hidden sm:block text-inherit font-serif'>
-                    <Link color="foreground" href="#">
+                    <Link color="foreground" href="/coaa_research">
                         Research
                     </Link>
                 </NavbarItem>
                 <NavbarItem className='hidden sm:block text-inherit font-serif'>
-                    <Link color="foreground" href="#">
+                    <Link color="foreground" href="/coaa_opportunity">
                         Opportunity
                     </Link>
                 </NavbarItem>
-                <NavbarItem>
-                    <ThemeSwitcher />
-                </NavbarItem>
-                <NavbarItem className='text-inherit'>
-                    {isSignedIn ? (
-                        <UserButton
-                            showName
-                            appearance={
-                                currentTheme === "dark" ? { baseTheme: dark } : undefined
-                            } />
-                    ): (
-                    <Link className='font-serif' color="foreground" href='/sign-in'>Sign In</Link> 
-                    )}
-                </NavbarItem>
-                
+
+
             </NavbarContent>
+
+            <NavbarMenu>
+                {menuItems.map((item, index) => (
+                    <NavbarMenuItem key={`${item}-${index}`}>
+                        <Link
+                            className="w-full font-serif"
+                            color="foreground"
+                            href={
+                                item === "Sign In" ? "/sign-in" : 
+                                item === "Sign Out" ? "#" : 
+                                item === "My COAA" ? "/mycoaa" : 
+                                item === "Service" ? "/coaa_service" : "/"
+                                
+                            }
+                            onClick={item === "Sign Out" ? handleSignOut : undefined}
+                            size="lg"
+                        >
+                            {item}
+                        </Link>
+                    </NavbarMenuItem>
+                ))}
+            </NavbarMenu>
         </Navbar>
     );
 }
