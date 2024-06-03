@@ -45,12 +45,12 @@ export default function Mycoaa_Page() {
                 </CardHeader>
                 <CardBody className="px-3 py-0 text-small text-default-600">
                     <p>
-                        <>COAA Web Developer @ {session.user.publicMetadata.category} Chapter</>
+                        <>COAA Web Placeholder TODO: Chapter Info</>
                     </p>
                     <span>
-                        Join us for better user interfaces, faster development, and more.
-                        <span aria-label="computer" role="img">
-                            💻
+                        Join us for better research, collaboration, and more..
+                        <span aria-label="laugh" role="img">
+                            😆
                         </span>
                     </span>
                 </CardBody>
