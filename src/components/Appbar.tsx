@@ -43,7 +43,9 @@ export default function Appbar() {
             <NavbarContent className="sm:flex" justify="start">
                 <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
                 <NavbarBrand>
-                    <p className="text-xl font-serif font-bold text-inherit">COAA</p>
+                    <Link className="text-xl font-serif font-bold text-inherit" href="/coaa_service" aria-current="page">
+                        COAA
+                    </Link>
                 </NavbarBrand>
             </NavbarContent>
 
@@ -82,8 +84,8 @@ export default function Appbar() {
                                 item === "Sign In" ? "/sign-in" : 
                                 item === "Sign Out" ? "#" : 
                                 item === "My COAA" ? "/mycoaa" : 
-                                item === "Service" ? "/coaa_service" : "/"
-                                
+                                item === "Service" ? "/coaa_service" :
+                                item === "Activity" ? "/coaa_activity" : "/"
                             }
                             onClick={item === "Sign Out" ? handleSignOut : undefined}
                             size="lg"
