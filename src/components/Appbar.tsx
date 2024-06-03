@@ -85,7 +85,8 @@ export default function Appbar() {
                                 item === "Sign Out" ? "#" : 
                                 item === "My COAA" ? "/mycoaa" : 
                                 item === "Service" ? "/coaa_service" :
-                                item === "Activity" ? "/coaa_activity" : "/"
+                                item === "Activity" ? "/coaa_activity" :
+                                item === "Research" ? "/coaa_research" : "/"
                             }
                             onClick={item === "Sign Out" ? handleSignOut : undefined}
                             size="lg"
