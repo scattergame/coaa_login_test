@@ -1,10 +1,8 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { useClerk, useUser, UserButton } from '@clerk/nextjs';
+import { useClerk, useUser } from '@clerk/nextjs';
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, Link, NavbarMenu, NavbarMenuItem } from "@nextui-org/react";
-import { dark } from '@clerk/themes';
 import { useTheme } from "next-themes";
-import { Avatar } from '@nextui-org/react';
 
 export default function Appbar() {
     const { signOut } = useClerk();
