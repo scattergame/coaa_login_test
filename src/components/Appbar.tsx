@@ -21,6 +21,7 @@ export default function Appbar() {
         "Service",
         "Activity",
         "Research",
+        "Highlight",
         "Opportunity",
         "Sign Out"
     ] : [
@@ -28,6 +29,7 @@ export default function Appbar() {
         "Service",
         "Activity",
         "Research",
+        "Highlight",
         "Opportunity"
     ];
 
@@ -64,6 +66,11 @@ export default function Appbar() {
                     </Link>
                 </NavbarItem>
                 <NavbarItem className='hidden sm:block text-inherit font-serif'>
+                    <Link color="foreground" href="/coaa_seminar">
+                        Highlights
+                    </Link>
+                </NavbarItem>
+                <NavbarItem className='hidden sm:block text-inherit font-serif'>
                     <Link color="foreground" href="/coaa_opportunity">
                         Opportunity
                     </Link>
@@ -84,7 +91,9 @@ export default function Appbar() {
                                 item === "My COAA" ? "/mycoaa" : 
                                 item === "Service" ? "/coaa_service" :
                                 item === "Activity" ? "/coaa_activity" :
-                                item === "Research" ? "/coaa_research" : "/"
+                                item === "Research" ? "/coaa_research" :
+                                item === "Highlight" ? "/coaa_seminar" :                   
+                                "/"
                             }
                             onClick={item === "Sign Out" ? handleSignOut : undefined}
                             size="lg"
