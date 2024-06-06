@@ -10,28 +10,28 @@ export default function page() {
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6'>
         <ActivityCard
           imageUrl="https://firebasestorage.googleapis.com/v0/b/nextjs-firebase-f66b6.appspot.com/o/activity%2Factivity1.jpg?alt=media&token=b6ddcba5-3af1-44fa-a237-a5644f48fa89"
-          title='Activity 1'
-          content='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+          title='Mid-Autumn Festival'
+          content='COAA Mid-Autumn Festival Gathering at Cabin John Park'
         />
         <ActivityCard
           imageUrl='https://firebasestorage.googleapis.com/v0/b/nextjs-firebase-f66b6.appspot.com/o/activity%2Factivity2.jpg?alt=media&token=465ea159-1203-4551-bfeb-c89ff61adda9'
-          title='Activity 2'
-          content='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+          title='Mid-Autumn Festival'
+          content='COAA-CC Mid-Autumn Retreat at Colorado State University'
         />
         <ActivityCard
           imageUrl='https://firebasestorage.googleapis.com/v0/b/nextjs-firebase-f66b6.appspot.com/o/activity%2Factivity3.jpg?alt=media&token=287def46-c89e-4802-ae0c-6c433d4d2928'
           title='Activity 3'
-          content='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+          content='Placeholder content'
         />
         <ActivityCard
           imageUrl='https://firebasestorage.googleapis.com/v0/b/nextjs-firebase-f66b6.appspot.com/o/activity%2Factivity4.jpg?alt=media&token=6464ba17-5b65-4dd8-b403-ac7b7c6dadc7'
           title='Activity 4'
-          content='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+          content='Placeholder content'
         />
         <ActivityCard
           imageUrl='https://firebasestorage.googleapis.com/v0/b/nextjs-firebase-f66b6.appspot.com/o/activity%2Factivity5.jpg?alt=media&token=a908d3f4-aae8-4602-b7fa-72bcb1bcd4e0'
           title='Activity 5'
-          content='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+          content='Placeholder content'
         />
       </div>
     </div>
